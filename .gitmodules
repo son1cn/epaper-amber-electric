@@ -1,6 +1,0 @@
-[submodule "PaPiRus"]
-	path = PaPiRus
-	url = https://github.com/PiSupply/PaPiRus
-[submodule "AmberElectric"]
-	path = AmberElectric
-	url = https://github.com/madpilot/amberelectric.py
