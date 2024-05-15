@@ -37,9 +37,9 @@ try:
 except amberelectric.ApiException as e:
     print("Exception: %s\n" % e)
 
-print('%3.2f' %current[0].per_kwh)
+#print('%3.2f' %current[0].per_kwh)
 next_hour = current[1].nem_time-timedelta(minutes=30)
-print("forecast @" + next_hour.strftime('%H:%M') + ": %3.2f" %(current[1].per_kwh))
+#print("forecast @" + next_hour.strftime('%H:%M') + ": %3.2f" %(current[1].per_kwh))
 
 try:
     #usage = api.get_usage(site_id, date(2021, 6, 1), date(2021, 6, 1))
@@ -55,7 +55,7 @@ for i in usage:
     kwh += i.kwh
     #print(i.start_time,i.per_kwh,i.kwh,i.cost,i.per_kwh*i.kwh)
 
-print("Last 24Hr: \ncost $%3.2f" %(cost/100) + " kwh %3.2f" %(kwh))
+#print("Last 24Hr: \ncost $%3.2f" %(cost/100) + " kwh %3.2f" %(kwh))
 
 #get current date-time
 now = datetime.now()
@@ -67,8 +67,5 @@ text.UpdateText("cur",format(current[0].per_kwh,'3.0f')+u"\u00A2")
 text.UpdateText("forecast","@" + next_hour.strftime('%H:%M') + " - %3.0f" %(current[1].per_kwh)+u"\u00A2")
 text.UpdateText("past", "$"+format((cost/100),'3.2f') +" "+format(kwh,'3.2f')+"kwh")
 
-# text.UpdateText("gas","Gas:"+str(gas))
 
-# text.UpdateText("val", "Val1:"+format(ethval,'.6f'))
-# text.UpdateText("valvalue","$"+format(ethval*eth_usd,'.2f'))
 text.WriteAll()
